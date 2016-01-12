@@ -64,13 +64,13 @@ public class TimedResponseGame extends JFrame {
 	//calculates and displays results when player clicks Stop button
 	public class StopButtonHandler implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-			long difference = System.nanoTime() - startTime;
-			difference = difference / 1000000; 
+			long elapsedMilliseconds = System.nanoTime() - startTime;
+			elapsedMilliseconds = elapsedMilliseconds / 1000000; 
 			boolean wasEarly = false; 
-			if (difference < 3000) {
+			if (elapsedMilliseconds < 3000) {
 				wasEarly = true; 
 			} 
-			int millisecondsOff = (int) Math.abs(3000 - difference); 
+			int millisecondsOff = (int) Math.abs(3000 - elapsedMilliseconds); 
 			if (millisecondsOff == 0) {
 				result.setText("You got it in exactly 3 seconds!");
 			} else if (millisecondsOff <= 100) {
